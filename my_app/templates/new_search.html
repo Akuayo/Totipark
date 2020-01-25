@@ -1,25 +1,25 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static%}
 {% block content %}
 <h2 style="text-align: center"> {{ search | title}}</h2>
 <div class="container">
 
     <div class="row">
+        {% for post in final_postings %}
         <div class="col s4">
             <div class="card">
                 <div class="card-image">
-                    <img src="https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwi1z-_7457nAhUH8xQKHQXTB20QjRx6BAgBEAQ&url=https%3A%2F%2Fdogtime.com%2Fpuppies%2F1130-puppy-behavior-basics-hsus&psig=AOvVaw1Tidbv5saB8ZDPTQ06-8wm&ust=1580042703137339 ">
-                    <span class="card-title">Card Title</span>
-
+                    <a href="{{post.1}}"><img src="{{ post.3 }}" alt=""></a>
                 </div>
                 <div class="card-content">
-                    <p>Test</p>
+                    <p>{{post.0}}</p>
                 </div>
                 <div class="card-action">
-                    <a href="/">TEST PRICE</a>
+                    <a href="{{post.1}}">View listing: Price {{post.2}}</a>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
 
 </div>
